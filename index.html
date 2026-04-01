@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elite Party Rentals — Bakersfield's #1 party rental company. Bounce houses, tables, chairs, linens & concessions. Bilingual service. Get a free quote today." />
   <title>Elite Party Rentals — Bakersfield's Go-To Party Rental Company</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Elite Party Rentals",
+    "address": { "@type": "PostalAddress", "addressLocality": "Bakersfield", "addressRegion": "CA" },
+    "telephone": "[YOUR_PHONE]",
+    "url": "[YOUR_URL]",
+    "priceRange": "$$"
+  }
+  </script>
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,7 +75,9 @@
       object-fit: contain;
       opacity: 0;
       animation: logoFloat linear infinite;
+      animation-play-state: paused;
       border-radius: 50%;
+      will-change: transform;
     }
 
     @keyframes logoFloat {
@@ -122,7 +136,7 @@
       list-style: none;
     }
 
-    .nav-links a {
+    .nav-links a:not(.nav-cta) {
       color: rgba(255,255,255,.8);
       text-decoration: none;
       font-family: 'Lato', sans-serif;
@@ -133,24 +147,24 @@
       transition: color .2s;
     }
 
-    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a:not(.nav-cta):hover { color: var(--yellow); }
 
     .nav-cta {
       background: var(--red);
-      color: #fff !important;
+      color: #fff;
       padding: 10px 22px;
       border-radius: 8px;
-      font-family: 'Poppins', sans-serif !important;
-      font-weight: 700 !important;
-      font-size: .85rem !important;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: .85rem;
       letter-spacing: .5px;
       text-transform: uppercase;
-      transition: background .2s, transform .15s !important;
+      transition: background .2s, transform .15s;
     }
 
     .nav-cta:hover {
-      background: var(--red-d) !important;
-      color: #fff !important;
+      background: var(--red-d);
+      color: #fff;
       transform: translateY(-1px);
     }
 
@@ -363,6 +377,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 20px 60px rgba(26,127,232,.35);
+      border-radius: 50%;
     }
 
     .hero-logo-glow {
@@ -393,7 +409,6 @@
       width: 220px;
       height: 220px;
       object-fit: contain;
-      filter: drop-shadow(0 20px 60px rgba(26,127,232,.6));
       animation: heroFloat 4s ease-in-out infinite;
     }
 
@@ -1750,6 +1765,64 @@
 
     .lang-toggle { cursor: pointer; }
 
+    /* ===== PRICE ESTIMATOR ===== */
+    @keyframes estFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #qo-estimator {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 20px 0 8px;
+      animation: estFadeIn .25s ease both;
+    }
+
+    #qo-est-list {
+      list-style: none;
+      margin: 0 0 12px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    #qo-est-list li {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Lato', sans-serif;
+      font-size: .88rem;
+      color: #fff;
+    }
+
+    #qo-est-list li span.est-price {
+      color: rgba(255,255,255,.75);
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    .qo-est-total {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    #qo-est-amount {
+      color: var(--yellow);
+    }
+
+    .qo-est-disclaimer {
+      margin-top: 8px;
+      font-size: .75rem;
+      color: rgba(255,255,255,.5);
+      font-family: 'Lato', sans-serif;
+    }
+
     /* ===== HEARTBEAT PULSE ===== */
     @keyframes heartbeat {
       0%   { box-shadow: 0 0 0 0 rgba(232, 35, 26, 0.7); transform: scale(1); }
@@ -2085,7 +2158,7 @@
             <div class="qo-checklist">
 
               <!-- Jumper -->
-              <div class="qo-item" id="qo-row-jumper">
+              <div class="qo-item" id="qo-row-jumper" data-price="150">
                 <label class="qo-check-cell" for="qo-cb-jumper">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-jumper" data-row="qo-row-jumper" />
                 </label>
@@ -2103,7 +2176,7 @@
               </div>
 
               <!-- Tables -->
-              <div class="qo-item" id="qo-row-tables">
+              <div class="qo-item" id="qo-row-tables" data-price="8">
                 <label class="qo-check-cell" for="qo-cb-tables">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-tables" data-row="qo-row-tables" />
                 </label>
@@ -2121,7 +2194,7 @@
               </div>
 
               <!-- Chairs -->
-              <div class="qo-item" id="qo-row-chairs">
+              <div class="qo-item" id="qo-row-chairs" data-price="1.50">
                 <label class="qo-check-cell" for="qo-cb-chairs">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-chairs" data-row="qo-row-chairs" />
                 </label>
@@ -2139,7 +2212,7 @@
               </div>
 
               <!-- Canopy -->
-              <div class="qo-item" id="qo-row-canopy">
+              <div class="qo-item" id="qo-row-canopy" data-price="85">
                 <label class="qo-check-cell" for="qo-cb-canopy">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-canopy" data-row="qo-row-canopy" />
                 </label>
@@ -2157,7 +2230,7 @@
               </div>
 
               <!-- Concession -->
-              <div class="qo-item" id="qo-row-concession">
+              <div class="qo-item" id="qo-row-concession" data-price="75">
                 <label class="qo-check-cell" for="qo-cb-concession">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-concession" data-row="qo-row-concession" />
                 </label>
@@ -2189,6 +2262,13 @@
                 <label for="qo-phone" data-i18n="qo_phone_lbl">Phone Number</label>
                 <input type="tel" id="qo-phone" placeholder="(555) 000-0000" required />
               </div>
+            </div>
+
+            <!-- Price Estimator -->
+            <div id="qo-estimator" style="display:none">
+              <ul id="qo-est-list"></ul>
+              <div class="qo-est-total">Estimated Total: <span id="qo-est-amount">$0.00</span></div>
+              <p class="qo-est-disclaimer">* Final quote confirmed before booking. Delivery fee not included.</p>
             </div>
 
             <!-- 5. Submit -->
@@ -2607,6 +2687,7 @@
     for (let i = 0; i < COUNT; i++) {
       const img = document.createElement('img');
       img.src = 'brand_assets/elite_party_rentals_logo.png';
+      img.alt = 'Elite Party Rentals logo';
       img.className = 'logo-float';
       const size = 32 + Math.random() * 40;
       const dur  = 14 + Math.random() * 16;
@@ -2621,6 +2702,11 @@
       ].join(';');
       layer.appendChild(img);
     }
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.logo-float').forEach(function (el) {
+        el.style.animationPlayState = 'running';
+      });
+    });
   })();
 
   /* ---- Pause floating logos when hero is off-screen ---- */
@@ -2747,6 +2833,61 @@
   /* ---- Formspree endpoints (replace YOUR_FORM_ID with real IDs from formspree.io) ---- */
   var FORMSPREE_QUICK  = 'https://formspree.io/f/mpqolgzj';
   var FORMSPREE_CUSTOM = 'https://formspree.io/f/mpqolgzj';
+
+  /* ---- Quick Order price estimator ---- */
+  (function () {
+    var estimator = document.getElementById('qo-estimator');
+    var estList   = document.getElementById('qo-est-list');
+    var estAmount = document.getElementById('qo-est-amount');
+
+    function usd(n) {
+      return '$' + n.toFixed(2);
+    }
+
+    function updateEstimate() {
+      var rows = document.querySelectorAll('#qo-form .qo-checkbox:checked');
+      if (rows.length === 0) {
+        estimator.style.display = 'none';
+        return;
+      }
+
+      estimator.style.display = 'block';
+      estList.innerHTML = '';
+      var subtotal = 0;
+
+      rows.forEach(function (cb) {
+        var row      = document.getElementById(cb.dataset.row);
+        var price    = parseFloat(row.dataset.price) || 0;
+        var name     = row.querySelector('.qo-item-name').textContent.trim();
+        var qtyInput = row.querySelector('.qo-qty-input');
+        var qty      = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
+        var lineTotal = price * qty;
+        subtotal += lineTotal;
+
+        var li = document.createElement('li');
+        var qtyLabel = qty > 1 ? ' ×' + qty : '';
+        li.innerHTML = '<span>' + name + qtyLabel + '</span><span class="est-price">' + usd(lineTotal) + '</span>';
+        estList.appendChild(li);
+      });
+
+      estAmount.textContent = usd(subtotal);
+    }
+
+    // Checkbox changes
+    document.querySelectorAll('#qo-form .qo-checkbox').forEach(function (cb) {
+      cb.addEventListener('change', updateEstimate);
+    });
+
+    // Qty +/- buttons
+    document.querySelectorAll('#qo-form .qo-qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', updateEstimate);
+    });
+
+    // Direct qty input edits
+    document.querySelectorAll('#qo-form .qo-qty-input').forEach(function (input) {
+      input.addEventListener('input', updateEstimate);
+    });
+  })();
 
   /* ---- Quick Order submit ---- */
   async function qoSubmit(e) {
