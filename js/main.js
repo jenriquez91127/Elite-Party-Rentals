@@ -1,4 +1,3 @@
-```js
 /* ---- Translations ---- */
 const translations = {
   en: {
@@ -328,6 +327,3 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
-```
-
----
