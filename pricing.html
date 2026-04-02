@@ -1,0 +1,291 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elite Party Rentals — Bakersfield's #1 party rental company. Bounce houses, tables, chairs, linens & concessions. Bilingual service. Get a free quote today." />
+  <title>Pricing — Elite Party Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="logo-float-layer" id="logo-float-layer"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="brand_assets/elite_party_rentals_logo.png" alt="Elite Party Rentals Logo" />
+    <div class="nav-logo-text">Elite Party<br /><span>Rentals</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="services.html#why" data-i18n="nav_why">Why Us</a></li>
+    <li><a href="services.html#how" data-i18n="nav_how">How It Works</a></li>
+    <li><a href="reviews.html" data-i18n="nav_reviews">Reviews</a></li>
+    <li><a href="pricing.html" class="nav-link-active" data-i18n="nav_pricing">Pricing</a></li>
+    <li><a class="nav-cta btn-heartbeat" href="booking.html" data-i18n="nav_cta">Book Now</a></li>
+  </ul>
+  <div class="lang-toggle" id="lang-toggle" title="Switch language / Cambiar idioma">
+    <span class="lang-btn lang-active" id="lang-en">EN</span>
+    <span class="lang-btn" id="lang-es">ES</span>
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing reveal" id="pricing" style="padding-top:172px;">
+  <div class="section-header center reveal">
+    <div class="section-label" data-i18n="pricing_label">Rentals &amp; Pricing</div>
+    <h2 class="section-title" data-i18n="pricing_title">Everything for Your Next Event</h2>
+    <p class="section-sub" data-i18n="pricing_sub">Transparent, straightforward pricing on all standard rentals. Custom packages available — ask us!</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="pricing-filter-bar">
+    <button class="filter-btn filter-active" data-filter="all" data-i18n="pf_all">All</button>
+    <button class="filter-btn" data-filter="tables-chairs" data-i18n="pf_tables">Tables &amp; Chairs</button>
+    <button class="filter-btn" data-filter="tents" data-i18n="pf_tents">Tents</button>
+    <button class="filter-btn" data-filter="inflatables" data-i18n="pf_inflatables">Inflatables</button>
+    <button class="filter-btn" data-filter="linens" data-i18n="pf_linens">Linens</button>
+    <button class="filter-btn" data-filter="concessions" data-i18n="pf_concessions">Concessions</button>
+    <button class="filter-btn" data-filter="packages" data-i18n="pf_packages">Packages</button>
+  </div>
+
+  <!-- Pricing grid -->
+  <div class="pricing-grid">
+
+    <div class="pricing-item reveal" data-category="tables-chairs">
+      <span class="pricing-badge" data-i18n="badge_popular">Popular</span>
+      <div class="pricing-icon">🪑</div>
+      <div class="pricing-name" data-i18n="pi1_name">Folding Chair</div>
+      <p class="pricing-desc" data-i18n="pi1_desc">White folding chair, clean and sturdy for any occasion.</p>
+      <div class="pricing-price" data-i18n="pi1_price">$2 / each</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="tables-chairs">
+      <div class="pricing-icon">⭕</div>
+      <div class="pricing-name" data-i18n="pi2_name">Round Table 60"</div>
+      <p class="pricing-desc" data-i18n="pi2_desc">Seats 8–10 guests. Great for dinners and formal setups.</p>
+      <div class="pricing-price" data-i18n="pi2_price">$12 / each</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="tables-chairs">
+      <div class="pricing-icon">🍽️</div>
+      <div class="pricing-name" data-i18n="pi3_name">Rectangular Table 8ft</div>
+      <p class="pricing-desc" data-i18n="pi3_desc">Seats 8–10 guests. Ideal for buffets and banquet rows.</p>
+      <div class="pricing-price" data-i18n="pi3_price">$10 / each</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="linens">
+      <div class="pricing-icon">🎀</div>
+      <div class="pricing-name" data-i18n="pi4_name">White Linen 60" Round</div>
+      <p class="pricing-desc" data-i18n="pi4_desc">Crisp white fitted linen for 60" round tables.</p>
+      <div class="pricing-price" data-i18n="pi4_price">$6 / each</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="tents">
+      <span class="pricing-badge" data-i18n="badge_popular">Popular</span>
+      <div class="pricing-icon">⛺</div>
+      <div class="pricing-name" data-i18n="pi5_name">10×10 Canopy Tent</div>
+      <p class="pricing-desc" data-i18n="pi5_desc">Pop-up canopy for shade or light weather protection.</p>
+      <div class="pricing-price" data-i18n="pi5_price">$85 / day</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="tents">
+      <div class="pricing-icon">🏕️</div>
+      <div class="pricing-name" data-i18n="pi6_name">20×20 Frame Tent</div>
+      <p class="pricing-desc" data-i18n="pi6_desc">Heavy-duty frame tent for larger events and gatherings.</p>
+      <div class="pricing-price" data-i18n="pi6_price">$250 / day</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="inflatables">
+      <span class="pricing-badge" data-i18n="badge_popular">Popular</span>
+      <div class="pricing-icon">🎪</div>
+      <div class="pricing-name" data-i18n="pi7_name">Bounce House 13×13</div>
+      <p class="pricing-desc" data-i18n="pi7_desc">Classic bounce house, wet or dry. Safe and always a hit.</p>
+      <div class="pricing-price" data-i18n="pi7_price">$150 / day</div>
+    </div>
+
+    <div class="pricing-item reveal" data-category="inflatables">
+      <div class="pricing-icon">🌊</div>
+      <div class="pricing-name" data-i18n="pi8_name">Combo Bounce &amp; Slide</div>
+      <p class="pricing-desc" data-i18n="pi8_desc">Bounce house plus water slide — the ultimate summer combo.</p>
+      <div class="pricing-price" data-i18n="pi8_price">$225 / day</div>
+    </div>
+
+  </div>
+
+  <!-- Packages subsection -->
+  <div id="packages-section">
+    <h3 class="packages-heading reveal" data-i18n="pkg_heading">Event Packages</h3>
+    <p class="packages-sub reveal" data-i18n="pkg_sub">Everything bundled — better price, zero hassle.</p>
+
+    <div class="packages-grid">
+
+      <!-- Package 1: Basic Gathering -->
+      <div class="pkg-card reveal" data-category="packages">
+        <span class="pkg-label" data-i18n="pkg1_label">Starter</span>
+        <div class="pkg-name" data-i18n="pkg1_name">Basic Gathering</div>
+        <div class="pkg-price" data-i18n="pkg1_price">$149</div>
+        <ul class="pkg-list">
+          <li data-i18n="pkg1_f1">10 folding chairs</li>
+          <li data-i18n="pkg1_f2">2 round tables</li>
+          <li data-i18n="pkg1_f3">Delivery included</li>
+        </ul>
+        <button class="pkg-btn" data-package="Basic Gathering" data-i18n="pkg_cta">Get this package</button>
+      </div>
+
+      <!-- Package 2: Backyard Fiesta (FEATURED) -->
+      <div class="pkg-card pkg-featured reveal" data-category="packages">
+        <span class="pkg-label pkg-label-featured" data-i18n="pkg2_label">Most Popular</span>
+        <div class="pkg-name" data-i18n="pkg2_name">Backyard Fiesta</div>
+        <div class="pkg-price" data-i18n="pkg2_price">$349</div>
+        <ul class="pkg-list">
+          <li data-i18n="pkg2_f1">50 chairs</li>
+          <li data-i18n="pkg2_f2">5 tables + linens</li>
+          <li data-i18n="pkg2_f3">10×20 tent</li>
+          <li data-i18n="pkg2_f4">Delivery &amp; setup included</li>
+        </ul>
+        <button class="pkg-btn" data-package="Backyard Fiesta" data-i18n="pkg_cta">Get this package</button>
+      </div>
+
+      <!-- Package 3: Full Celebration -->
+      <div class="pkg-card reveal" data-category="packages">
+        <span class="pkg-label" data-i18n="pkg3_label">Premium</span>
+        <div class="pkg-name" data-i18n="pkg3_name">Full Celebration</div>
+        <div class="pkg-price" data-i18n="pkg3_price">$649</div>
+        <ul class="pkg-list">
+          <li data-i18n="pkg3_f1">100 chairs</li>
+          <li data-i18n="pkg3_f2">10 tables + linens</li>
+          <li data-i18n="pkg3_f3">20×20 tent</li>
+          <li data-i18n="pkg3_f4">Bounce house</li>
+          <li data-i18n="pkg3_f5">Full setup &amp; teardown</li>
+        </ul>
+        <button class="pkg-btn" data-package="Full Celebration" data-i18n="pkg_cta">Get this package</button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="brand_assets/elite_party_rentals_logo.png" alt="Elite Party Rentals" />
+        <div class="footer-logo-text">Elite Party<br /><span>Rentals</span></div>
+      </div>
+      <p data-i18n="ft_tagline">Your trusted local party rental company. We make celebrations easy, beautiful, and stress-free — from backyard birthdays to large-scale events.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#" aria-label="Facebook">f</a>
+        <a class="social-btn" href="#" aria-label="Instagram">ig</a>
+        <a class="social-btn" href="#" aria-label="TikTok">tt</a>
+        <a class="social-btn" href="#" aria-label="YouTube">yt</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="ft_ql_title">Quick Links</h4>
+      <ul>
+        <li><a href="services.html" data-i18n="ft_ql1">Our Rentals</a></li>
+        <li><a href="services.html#why" data-i18n="ft_ql2">Why Choose Us</a></li>
+        <li><a href="services.html#how" data-i18n="ft_ql3">How It Works</a></li>
+        <li><a href="reviews.html" data-i18n="ft_ql4">Reviews</a></li>
+        <li><a href="booking.html" data-i18n="ft_ql5">Get a Quote</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="ft_rent_title">Rentals</h4>
+      <ul>
+        <li><a href="pricing.html" data-i18n="ft_rent1">Bounce Houses</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent2">Party Tents</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent3">Tables &amp; Chairs</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent4">Concession Machines</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent5">Lighting</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent6">Photo Booths</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="ft_contact_title">Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="icon">📞</span>
+        <span>(555) 867-5309</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="icon">✉️</span>
+        <span>info@elitepartyrentals.com</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="icon">📍</span>
+        <span data-i18n-html="ft_address">Serving the Greater Metro Area<br />and Surrounding Communities</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="icon">🕐</span>
+        <span data-i18n-html="ft_hours">Mon–Sat: 8am–7pm<br />Sun: 9am–5pm</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p data-i18n="ft_copy">&copy; 2026 Elite Party Rentals. All rights reserved.</p>
+    <p data-i18n-html="ft_built">Built with <span style="color:var(--red)">♥</span> for every celebration</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  /* ---- Formspree endpoints ---- */
+  var FORMSPREE_QUICK  = 'https://formspree.io/f/mpqolgzj';
+  var FORMSPREE_CUSTOM = 'https://formspree.io/f/mpqolgzj';
+
+  /* ---- Package CTA buttons ---- */
+  document.querySelectorAll('.pkg-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      window.location.href = 'booking.html?package=' + encodeURIComponent(btn.dataset.package || '');
+    });
+  });
+
+  /* ---- Pricing filter ---- */
+  (function () {
+    var btns        = document.querySelectorAll('.filter-btn');
+    var items       = document.querySelectorAll('.pricing-item');
+    var pkgSection  = document.getElementById('packages-section');
+    var pkgCards    = document.querySelectorAll('.pkg-card');
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btns.forEach(function (b) { b.classList.remove('filter-active'); });
+        btn.classList.add('filter-active');
+
+        var filter = btn.dataset.filter;
+
+        // Show/hide individual pricing items
+        items.forEach(function (item) {
+          item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+        });
+
+        // Show/hide packages subsection
+        if (filter === 'all' || filter === 'packages') {
+          pkgSection.style.display = '';
+          pkgCards.forEach(function (c) { c.style.display = ''; });
+        } else {
+          pkgSection.style.display = 'none';
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
+```
+
+---
