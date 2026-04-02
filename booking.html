@@ -1,0 +1,761 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elite Party Rentals — Bakersfield's #1 party rental company. Bounce houses, tables, chairs, linens & concessions. Bilingual service. Get a free quote today." />
+  <title>Book Now — Elite Party Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="logo-float-layer" id="logo-float-layer"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="brand_assets/elite_party_rentals_logo.png" alt="Elite Party Rentals Logo" />
+    <div class="nav-logo-text">Elite Party<br /><span>Rentals</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="services.html#why" data-i18n="nav_why">Why Us</a></li>
+    <li><a href="services.html#how" data-i18n="nav_how">How It Works</a></li>
+    <li><a href="reviews.html" data-i18n="nav_reviews">Reviews</a></li>
+    <li><a href="pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+    <li><a class="nav-cta btn-heartbeat" href="booking.html" data-i18n="nav_cta">Book Now</a></li>
+  </ul>
+  <div class="lang-toggle" id="lang-toggle" title="Switch language / Cambiar idioma">
+    <span class="lang-btn lang-active" id="lang-en">EN</span>
+    <span class="lang-btn" id="lang-es">ES</span>
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===== BOOKING ===== -->
+<section class="booking" id="booking" style="padding-top:172px;">
+
+  <!-- Path chooser -->
+  <div class="booking-chooser reveal">
+    <div class="section-label" data-i18n="book_label">Get Started</div>
+    <h2 class="section-title" data-i18n="book_heading">How can we help?</h2>
+    <p class="booking-chooser-sub" data-i18n="book_sub">Choose the option that best fits your event and we'll get you a fast, accurate quote.</p>
+    <div class="path-btns">
+      <button class="path-btn" id="btn-quick" aria-expanded="false" aria-controls="form-quick">
+        <span class="path-btn-icon">🛒</span>
+        <span class="path-btn-label" data-i18n="path_a_label">I know what I need</span>
+        <span class="path-btn-sub" data-i18n="path_a_sub">Chairs, tables, jumpers &amp; standard items — quick order, no fuss</span>
+        <span class="path-btn-arrow">↓</span>
+      </button>
+      <button class="path-btn" id="btn-custom" aria-expanded="false" aria-controls="form-custom">
+        <span class="path-btn-icon">✨</span>
+        <span class="path-btn-label" data-i18n="path_b_label">I need a custom setup</span>
+        <span class="path-btn-sub" data-i18n="path_b_sub">Draping, linens, full event build-out, or not sure yet — let's talk</span>
+        <span class="path-btn-arrow">↓</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Panel A: Quick Order -->
+  <div class="booking-panel" id="form-quick" role="region" aria-label="Quick order form">
+    <div class="booking-panel-inner">
+      <div class="booking-form">
+        <div class="form-title" data-i18n="qo_title">What do you need?</div>
+
+        <div id="qo-form-wrap">
+          <form id="qo-form" onsubmit="qoSubmit(event)">
+            <input type="hidden" id="qo-package" name="package" value="" />
+
+            <!-- 1. Event Date -->
+            <div class="qo-date-group">
+              <span class="qo-section-label" data-i18n="qo_date_lbl">Event Date</span>
+              <input type="date" id="qo-date" required />
+            </div>
+
+            <!-- 2. Item checklist -->
+            <span class="qo-section-label" data-i18n="qo_items_lbl">Select Items &amp; Quantities</span>
+            <div class="qo-checklist">
+
+              <!-- Jumper -->
+              <div class="qo-item" id="qo-row-jumper" data-price="150">
+                <label class="qo-check-cell" for="qo-cb-jumper">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-jumper" data-row="qo-row-jumper" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-jumper">
+                  <span class="qo-item-name" data-i18n="qo_i1_name">Jumper / Bounce House</span>
+                  <span class="qo-item-hint" data-i18n="qo_i1_hint">Wet or dry, standard 13×13</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-jumper" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-jumper" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-jumper" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tables -->
+              <div class="qo-item" id="qo-row-tables" data-price="8">
+                <label class="qo-check-cell" for="qo-cb-tables">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-tables" data-row="qo-row-tables" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-tables">
+                  <span class="qo-item-name" data-i18n="qo_i2_name">Tables</span>
+                  <span class="qo-item-hint" data-i18n="qo_i2_hint">6 ft rectangle</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-tables" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-tables" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-tables" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chairs -->
+              <div class="qo-item" id="qo-row-chairs" data-price="1.50">
+                <label class="qo-check-cell" for="qo-cb-chairs">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-chairs" data-row="qo-row-chairs" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-chairs">
+                  <span class="qo-item-name" data-i18n="qo_i3_name">Chairs</span>
+                  <span class="qo-item-hint" data-i18n="qo_i3_hint">White folding</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-chairs" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-chairs" value="10" min="1" max="999" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-chairs" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canopy -->
+              <div class="qo-item" id="qo-row-canopy" data-price="85">
+                <label class="qo-check-cell" for="qo-cb-canopy">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-canopy" data-row="qo-row-canopy" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-canopy">
+                  <span class="qo-item-name" data-i18n="qo_i4_name">Canopy / Tent</span>
+                  <span class="qo-item-hint" data-i18n="qo_i4_hint">10×10</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-canopy" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-canopy" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-canopy" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Concession -->
+              <div class="qo-item" id="qo-row-concession" data-price="75">
+                <label class="qo-check-cell" for="qo-cb-concession">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-concession" data-row="qo-row-concession" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-concession">
+                  <span class="qo-item-name" data-i18n="qo_i5_name">Concession Machine</span>
+                  <span class="qo-item-hint" data-i18n="qo_i5_hint">Popcorn, snow cone, or cotton candy</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-subselect">
+                    <select id="qo-concession-type">
+                      <option value="popcorn" data-i18n="qo_con1">🍿 Popcorn</option>
+                      <option value="snowcone" data-i18n="qo_con2">🧊 Snow Cone</option>
+                      <option value="cotton" data-i18n="qo_con3">🍭 Cotton Candy</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /.qo-checklist -->
+
+            <!-- 3 & 4. Address + Phone -->
+            <span class="qo-section-label" data-i18n="qo_deliv_lbl">Delivery &amp; Contact</span>
+            <div class="qo-bottom">
+              <div class="form-group" style="margin-bottom:0">
+                <label for="qo-address" data-i18n="qo_addr_lbl">Delivery Address</label>
+                <input type="text" id="qo-address" placeholder="123 Main St, City" data-i18n-ph="qo_addr_ph" required />
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label for="qo-phone" data-i18n="qo_phone_lbl">Phone Number</label>
+                <input type="tel" id="qo-phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+
+            <!-- Price Estimator -->
+            <div id="qo-estimator" style="display:none">
+              <ul id="qo-est-list"></ul>
+              <div class="qo-est-total">Estimated Total: <span id="qo-est-amount">$0.00</span></div>
+              <p class="qo-est-disclaimer">* Final quote confirmed before booking. Delivery fee not included.</p>
+            </div>
+
+            <!-- 5. Submit -->
+            <div class="form-error" id="qo-error" data-i18n-html="qo_error">Something went wrong — please call us at <strong>(555) 867-5309</strong>.</div>
+            <button type="submit" class="btn-primary form-submit" id="qo-submit-btn" data-i18n="qo_submit">Get My Price →</button>
+
+          </form>
+        </div><!-- /#qo-form-wrap -->
+
+        <!-- Confirmation message -->
+        <div class="qo-confirm" id="qo-confirm">
+          <div class="qo-confirm-icon">✓</div>
+          <div class="qo-confirm-msg" data-i18n-html="qo_confirm_msg">Got it! We'll text you a quote<br />within the hour.</div>
+          <div class="qo-confirm-sub" data-i18n="qo_confirm_sub">Check your phone — we'll reach out to confirm details.</div>
+        </div>
+
+      </div><!-- /.booking-form -->
+    </div>
+  </div>
+
+  <!-- Panel B: Custom Quote -->
+  <div class="booking-panel" id="form-custom" role="region" aria-label="Custom quote form">
+    <div class="booking-panel-inner">
+      <div class="booking-form" id="cq-form-shell">
+
+        <!-- Step indicator -->
+        <div class="cq-step-indicator">
+          <div class="cq-step-pip active" id="cq-pip-1">1</div>
+          <div class="cq-step-connector"><div class="cq-step-connector-fill" id="cq-connector"></div></div>
+          <div class="cq-step-pip" id="cq-pip-2">2</div>
+        </div>
+
+        <button type="button" class="cq-back-btn" id="cq-back" data-i18n="cq_back">← Back</button>
+
+        <!-- ── STEP 1 ── -->
+        <div class="cq-step active" id="cq-step-1">
+          <div class="cq-step-label" data-i18n-html="cq_s1_lbl">Step <span>1</span> of 2 — Event basics</div>
+          <form id="cq-form-1" onsubmit="cqNextStep(event)">
+            <div class="form-group">
+              <label for="cq-date" data-i18n="cq_date_lbl">Event Date</label>
+              <input type="date" id="cq-date" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cq-guests" data-i18n="cq_guests_lbl">Approximate Guest Count</label>
+                <select id="cq-guests" required>
+                  <option value="" data-i18n="cq_guests_ph">Select range...</option>
+                  <option>Under 25</option>
+                  <option>25–50</option>
+                  <option>50–100</option>
+                  <option>100–200</option>
+                  <option>200+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cq-type" data-i18n="cq_type_lbl">Event Type</label>
+                <select id="cq-type" required>
+                  <option value="" data-i18n="cq_type_ph">Select type...</option>
+                  <option data-i18n="cq_type1">Birthday</option>
+                  <option>Quinceañera</option>
+                  <option data-i18n="cq_type3">Wedding</option>
+                  <option data-i18n="cq_type4">Corporate</option>
+                  <option data-i18n="cq_type5">Other</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary form-submit" data-i18n="cq_next">Next →</button>
+          </form>
+        </div>
+
+        <!-- ── STEP 2 ── -->
+        <div class="cq-step" id="cq-step-2">
+          <div class="cq-step-label" data-i18n-html="cq_s2_lbl">Step <span>2</span> of 2 — Tell us more</div>
+          <form id="cq-form-2" onsubmit="cqFinalSubmit(event)">
+
+            <div class="form-group">
+              <label data-i18n-html="cq_need_lbl">What do you need? <span style="color:rgba(255,255,255,.4);font-weight:400;text-transform:none;letter-spacing:0;font-size:.8rem">(select all that apply)</span></label>
+              <div class="cq-pills" id="cq-pills">
+                <div class="cq-pill" data-value="Bounce House" data-i18n="pill1">🎪 Bounce House</div>
+                <div class="cq-pill" data-value="Tables &amp; Chairs" data-i18n="pill2">🪑 Tables &amp; Chairs</div>
+                <div class="cq-pill" data-value="Tent/Canopy" data-i18n="pill3">⛺ Tent / Canopy</div>
+                <div class="cq-pill" data-value="Linen &amp; Draping" data-i18n="pill4">🎀 Linen &amp; Draping</div>
+                <div class="cq-pill" data-value="Lighting" data-i18n="pill5">💡 Lighting</div>
+                <div class="cq-pill" data-value="Concessions" data-i18n="pill6">🍿 Concessions</div>
+                <div class="cq-pill" data-value="Photo Booth" data-i18n="pill7">📸 Photo Booth</div>
+                <div class="cq-pill" data-value="Full Setup Package" data-i18n="pill8">✨ Full Setup Package</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cq-vision" data-i18n="cq_vision_lbl">Describe colors, themes, or anything special</label>
+              <textarea id="cq-vision" placeholder="e.g. Blush pink and gold for a quince, outdoor backyard, around 80 guests — I need draping and lighting mostly..." data-i18n-ph="cq_vision_ph"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cq-name" data-i18n="cq_name_lbl">Your Name</label>
+                <input type="text" id="cq-name" placeholder="Maria Rodriguez" required />
+              </div>
+              <div class="form-group">
+                <label for="cq-phone" data-i18n="cq_phone_lbl">Phone Number</label>
+                <input type="tel" id="cq-phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cq-email" data-i18n="cq_email_lbl">Email Address</label>
+              <input type="email" id="cq-email" placeholder="you@email.com" required />
+            </div>
+
+            <div class="form-error" id="cq-error" data-i18n-html="cq_error">Something went wrong — please call us at <strong>(555) 867-5309</strong>.</div>
+            <button type="submit" class="btn-primary form-submit" id="cq-submit-btn" data-i18n="cq_submit">Send My Request →</button>
+          </form>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="cq-confirm" id="cq-confirm">
+          <div class="cq-confirm-icon">🎉</div>
+          <div class="cq-confirm-msg" data-i18n-html="cq_confirm_msg">Thank you! We'll reach out within<br />24 hours to plan everything.</div>
+          <div class="cq-confirm-sub" data-i18n="cq_confirm_sub">Check your email and phone — we'll be in touch soon.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="brand_assets/elite_party_rentals_logo.png" alt="Elite Party Rentals" />
+        <div class="footer-logo-text">Elite Party<br /><span>Rentals</span></div>
+      </div>
+      <p data-i18n="ft_tagline">Your trusted local party rental company. We make celebrations easy, beautiful, and stress-free — from backyard birthdays to large-scale events.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#" aria-label="Facebook">f</a>
+        <a class="social-btn" href="#" aria-label="Instagram">ig</a>
+        <a class="social-btn" href="#" aria-label="TikTok">tt</a>
+        <a class="social-btn" href="#" aria-label="YouTube">yt</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="ft_ql_title">Quick Links</h4>
+      <ul>
+        <li><a href="services.html" data-i18n="ft_ql1">Our Rentals</a></li>
+        <li><a href="services.html#why" data-i18n="ft_ql2">Why Choose Us</a></li>
+        <li><a href="services.html#how" data-i18n="ft_ql3">How It Works</a></li>
+        <li><a href="reviews.html" data-i18n="ft_ql4">Reviews</a></li>
+        <li><a href="booking.html" data-i18n="ft_ql5">Get a Quote</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="ft_rent_title">Rentals</h4>
+      <ul>
+        <li><a href="pricing.html" data-i18n="ft_rent1">Bounce Houses</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent2">Party Tents</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent3">Tables &amp; Chairs</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent4">Concession Machines</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent5">Lighting</a></li>
+        <li><a href="pricing.html" data-i18n="ft_rent6">Photo Booths</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="ft_contact_title">Contact Us</h4>
+      <div class="footer-contact-item">
+        <span class="icon">📞</span>
+        <span>(555) 867-5309</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="icon">✉️</span>
+        <span>info@elitepartyrentals.com</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="icon">📍</span>
+        <span data-i18n-html="ft_address">Serving the Greater Metro Area<br />and Surrounding Communities</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="icon">🕐</span>
+        <span data-i18n-html="ft_hours">Mon–Sat: 8am–7pm<br />Sun: 9am–5pm</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p data-i18n="ft_copy">&copy; 2026 Elite Party Rentals. All rights reserved.</p>
+    <p data-i18n-html="ft_built">Built with <span style="color:var(--red)">♥</span> for every celebration</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  /* ---- Formspree endpoints ---- */
+  var FORMSPREE_QUICK  = 'https://formspree.io/f/mpqolgzj';
+  var FORMSPREE_CUSTOM = 'https://formspree.io/f/mpqolgzj';
+
+  /* ---- Form submit (legacy helper, kept for safety) ---- */
+  function handleSubmit(e, form) {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    const original = btn.textContent;
+    btn.textContent = '✓ Sent! We\'ll be in touch soon.';
+    btn.style.background = '#27AE60';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.disabled = false;
+      form.reset();
+    }, 4000);
+  }
+
+  /* ---- Quick Order Form ---- */
+  (function () {
+    // Checkbox → toggle .checked on row
+    document.querySelectorAll('.qo-checkbox').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        var row = document.getElementById(this.dataset.row);
+        row.classList.toggle('checked', this.checked);
+      });
+    });
+
+    // +/− qty buttons
+    document.querySelectorAll('.qo-qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = document.getElementById(this.dataset.qty);
+        var val = parseInt(input.value, 10) || 1;
+        var next = val + parseInt(this.dataset.delta, 10);
+        input.value = Math.max(parseInt(input.min, 10) || 1, Math.min(parseInt(input.max, 10) || 99, next));
+      });
+    });
+
+    // Prevent typing below min in qty inputs
+    document.querySelectorAll('.qo-qty-input').forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        var min = parseInt(this.min, 10) || 1;
+        if (parseInt(this.value, 10) < min || isNaN(parseInt(this.value, 10))) this.value = min;
+      });
+    });
+  })();
+
+  /* ---- Quick Order price estimator ---- */
+  (function () {
+    var estimator = document.getElementById('qo-estimator');
+    var estList   = document.getElementById('qo-est-list');
+    var estAmount = document.getElementById('qo-est-amount');
+
+    function usd(n) {
+      return '$' + n.toFixed(2);
+    }
+
+    function updateEstimate() {
+      var rows = document.querySelectorAll('#qo-form .qo-checkbox:checked');
+      if (rows.length === 0) {
+        estimator.style.display = 'none';
+        return;
+      }
+
+      estimator.style.display = 'block';
+      estList.innerHTML = '';
+      var subtotal = 0;
+
+      rows.forEach(function (cb) {
+        var row      = document.getElementById(cb.dataset.row);
+        var price    = parseFloat(row.dataset.price) || 0;
+        var name     = row.querySelector('.qo-item-name').textContent.trim();
+        var qtyInput = row.querySelector('.qo-qty-input');
+        var qty      = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
+        var lineTotal = price * qty;
+        subtotal += lineTotal;
+
+        var li = document.createElement('li');
+        var qtyLabel = qty > 1 ? ' ×' + qty : '';
+        li.innerHTML = '<span>' + name + qtyLabel + '</span><span class="est-price">' + usd(lineTotal) + '</span>';
+        estList.appendChild(li);
+      });
+
+      estAmount.textContent = usd(subtotal);
+    }
+
+    // Checkbox changes
+    document.querySelectorAll('#qo-form .qo-checkbox').forEach(function (cb) {
+      cb.addEventListener('change', updateEstimate);
+    });
+
+    // Qty +/- buttons
+    document.querySelectorAll('#qo-form .qo-qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', updateEstimate);
+    });
+
+    // Direct qty input edits
+    document.querySelectorAll('#qo-form .qo-qty-input').forEach(function (input) {
+      input.addEventListener('input', updateEstimate);
+    });
+  })();
+
+  /* ---- Quick Order submit ---- */
+  async function qoSubmit(e) {
+    e.preventDefault();
+    var form      = document.getElementById('qo-form');
+    var wrap      = document.getElementById('qo-form-wrap');
+    var confirmEl = document.getElementById('qo-confirm');
+    var errorEl   = document.getElementById('qo-error');
+    var submitBtn = document.getElementById('qo-submit-btn');
+
+    // Require at least one item checked
+    var anyChecked = form.querySelector('.qo-checkbox:checked');
+    if (!anyChecked) {
+      var checklist = form.querySelector('.qo-checklist');
+      checklist.style.outline = '2px solid var(--red)';
+      setTimeout(function () { checklist.style.outline = ''; }, 2000);
+      return;
+    }
+
+    // Build items list
+    var items = [];
+    form.querySelectorAll('.qo-checkbox:checked').forEach(function (cb) {
+      var row  = document.getElementById(cb.dataset.row);
+      var name = row.querySelector('.qo-item-name').textContent.trim();
+      // Get qty if visible, or concession type
+      var qtyInput = row.querySelector('.qo-qty-input');
+      var subSel   = row.querySelector('.qo-subselect select');
+      if (qtyInput) {
+        items.push(name + ' ×' + qtyInput.value);
+      } else if (subSel) {
+        items.push(name + ' (' + subSel.options[subSel.selectedIndex].text + ')');
+      } else {
+        items.push(name);
+      }
+    });
+
+    var eventDate  = document.getElementById('qo-date').value;
+    var pkgVal     = document.getElementById('qo-package').value;
+    var payload = {
+      _subject:  'Quick Order Request - ' + eventDate,
+      event_date: eventDate,
+      items:     items.join(', '),
+      address:   document.getElementById('qo-address').value,
+      phone:     document.getElementById('qo-phone').value,
+    };
+    if (pkgVal) payload.package = pkgVal;
+
+    // Loading state
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    errorEl.classList.remove('show');
+
+    try {
+      var res = await fetch(FORMSPREE_QUICK, {
+        method:  'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        wrap.style.display = 'none';
+        confirmEl.classList.add('show');
+        setTimeout(function () {
+          confirmEl.classList.remove('show');
+          wrap.style.display = '';
+          form.reset();
+          document.querySelectorAll('.qo-item.checked').forEach(function (row) {
+            row.classList.remove('checked');
+          });
+        }, 5000);
+      } else {
+        throw new Error('non-ok response');
+      }
+    } catch (err) {
+      errorEl.classList.add('show');
+    } finally {
+      submitBtn.textContent = 'Get My Price →';
+      submitBtn.disabled = false;
+    }
+  }
+
+  /* ---- Custom Quote 2-step form ---- */
+  (function () {
+    var step1    = document.getElementById('cq-step-1');
+    var step2    = document.getElementById('cq-step-2');
+    var pip1     = document.getElementById('cq-pip-1');
+    var pip2     = document.getElementById('cq-pip-2');
+    var connector = document.getElementById('cq-connector');
+    var backBtn  = document.getElementById('cq-back');
+
+    // Pill toggle
+    document.querySelectorAll('.cq-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        this.classList.toggle('selected');
+      });
+    });
+
+    // Back button
+    backBtn.addEventListener('click', function () {
+      step2.classList.remove('active');
+      step1.classList.add('active');
+      pip1.classList.add('active');
+      pip1.classList.remove('done');
+      pip2.classList.remove('active');
+      connector.classList.remove('done');
+      backBtn.classList.remove('visible');
+    });
+
+    // Expose to global scope for inline handlers
+    window.cqNextStep = function (e) {
+      e.preventDefault();
+      step1.classList.remove('active');
+      step2.classList.add('active');
+      pip1.classList.remove('active');
+      pip1.classList.add('done');
+      pip1.textContent = '✓';
+      pip2.classList.add('active');
+      connector.classList.add('done');
+      backBtn.classList.add('visible');
+      document.getElementById('cq-form-shell').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+
+    window.cqFinalSubmit = async function (e) {
+      e.preventDefault();
+      var shell     = document.getElementById('cq-form-shell');
+      var confirmEl = document.getElementById('cq-confirm');
+      var errorEl   = document.getElementById('cq-error');
+      var submitBtn = document.getElementById('cq-submit-btn');
+      var indicator = shell.querySelector('.cq-step-indicator');
+
+      // Collect selected pills
+      var services = [];
+      document.querySelectorAll('.cq-pill.selected').forEach(function (p) {
+        services.push(p.dataset.value);
+      });
+
+      var eventDate  = document.getElementById('cq-date').value;
+      var eventType  = document.getElementById('cq-type').value;
+      var payload = {
+        _subject:       'Custom Quote - ' + eventType + ' on ' + eventDate,
+        event_date:     eventDate,
+        guest_count:    document.getElementById('cq-guests').value,
+        event_type:     eventType,
+        services:       services.join(', ') || 'None selected',
+        custom_notes:   document.getElementById('cq-vision').value,
+        name:           document.getElementById('cq-name').value,
+        phone:          document.getElementById('cq-phone').value,
+        email:          document.getElementById('cq-email').value,
+      };
+
+      // Loading state
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      errorEl.classList.remove('show');
+
+      try {
+        var res = await fetch(FORMSPREE_CUSTOM, {
+          method:  'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          step2.style.display    = 'none';
+          backBtn.style.display  = 'none';
+          indicator.style.display = 'none';
+          pip2.classList.remove('active');
+          pip2.classList.add('done');
+          pip2.textContent = '✓';
+          confirmEl.classList.add('show');
+
+          setTimeout(function () {
+            confirmEl.classList.remove('show');
+            step2.style.display    = '';
+            backBtn.style.display  = '';
+            indicator.style.display = '';
+            step2.classList.remove('active');
+            step1.classList.add('active');
+            pip1.classList.remove('done');
+            pip1.classList.add('active');
+            pip1.textContent = '1';
+            pip2.classList.remove('active', 'done');
+            pip2.textContent = '2';
+            connector.classList.remove('done');
+            backBtn.classList.remove('visible');
+            document.getElementById('cq-form-1').reset();
+            document.getElementById('cq-form-2').reset();
+            document.querySelectorAll('.cq-pill.selected').forEach(function (p) {
+              p.classList.remove('selected');
+            });
+          }, 5000);
+        } else {
+          throw new Error('non-ok response');
+        }
+      } catch (err) {
+        errorEl.classList.add('show');
+      } finally {
+        submitBtn.textContent = 'Send My Request →';
+        submitBtn.disabled = false;
+      }
+    };
+  })();
+
+  /* ---- Path chooser toggle ---- */
+  (function () {
+    const btnQuick  = document.getElementById('btn-quick');
+    const btnCustom = document.getElementById('btn-custom');
+    const panelQuick  = document.getElementById('form-quick');
+    const panelCustom = document.getElementById('form-custom');
+
+    function toggle(clickedBtn, clickedPanel, otherBtn, otherPanel) {
+      const isOpen = clickedPanel.classList.contains('open');
+
+      // Close the other panel
+      otherPanel.classList.remove('open');
+      otherBtn.classList.remove('active');
+      otherBtn.setAttribute('aria-expanded', 'false');
+
+      if (isOpen) {
+        // Collapse the clicked panel (toggle off)
+        clickedPanel.classList.remove('open');
+        clickedBtn.classList.remove('active');
+        clickedBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        // Open the clicked panel
+        clickedPanel.classList.add('open');
+        clickedBtn.classList.add('active');
+        clickedBtn.setAttribute('aria-expanded', 'true');
+        // Scroll panel into view after transition starts
+        setTimeout(() => {
+          clickedPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 80);
+      }
+    }
+
+    btnQuick.addEventListener('click', () =>
+      toggle(btnQuick, panelQuick, btnCustom, panelCustom));
+
+    btnCustom.addEventListener('click', () =>
+      toggle(btnCustom, panelCustom, btnQuick, panelQuick));
+
+    // Auto-open panel if ?package= param is present (from pricing.html pkg-btn redirect)
+    var params = new URLSearchParams(window.location.search);
+    var pkgParam = params.get('package');
+    if (pkgParam) {
+      var hiddenInput = document.getElementById('qo-package');
+      if (hiddenInput) hiddenInput.value = pkgParam;
+      btnQuick.click();
+    }
+  })();
+
+  /* ---- Package CTA buttons (on booking page, if any) ---- */
+  document.querySelectorAll('.pkg-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pkgName = btn.dataset.package || '';
+      var hiddenInput = document.getElementById('qo-package');
+      if (hiddenInput) hiddenInput.value = pkgName;
+
+      var btnQuick = document.getElementById('btn-quick');
+      if (btnQuick && !btnQuick.classList.contains('active')) btnQuick.click();
+
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
