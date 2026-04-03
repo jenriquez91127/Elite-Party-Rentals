@@ -1,11 +1,11 @@
 /* ---- Translations ---- */
 const translations = {
   en: {
-    nav_services:'Services', nav_why:'Why Us', nav_how:'How It Works', nav_reviews:'Reviews', nav_pricing:'Pricing', nav_cta:'Book Now',
+    nav_home:'Home', nav_services:'Services', nav_why:'Why Us', nav_how:'How It Works', nav_reviews:'Reviews', nav_pricing:'Pricing', nav_cta:'Book Now', ft_ql_faq:'FAQ', ft_svc_title:'Party Services', ft_svc_note:'Ask us about:', ft_svc1:'🍹 Mobile Bars', ft_svc2:'🎧 DJ Services', ft_svc3:'🍽️ Event Servers', ft_svc4:'📸 Photo Booths',
     hero_badge:'Proudly serving Bakersfield, Shafter & Arvin since 2019',
     hero_title:'Bakersfield\'s<br />\n      <span class="accent-blue">Go-To</span> Party<br />\n      <span class="accent-red">Rental Company</span>\n      <span class="accent-star"> ★</span>',
     hero_sub:'Premium party rentals delivered, set up, and stress-free. Bounce houses, tents, concessions, lighting & more — everything you need for the perfect celebration.',
-    hero_btn1:'Book Now', hero_btn2:'Explore Rentals',
+    hero_btn1:'Book Now', hero_btn2:'View Pricing →',
     hero_stat1:'Events Served', hero_stat2:'Years Experience', hero_stat3:'Average Rating',
     banner1:'🎈 Bounce Houses', banner2:'⛺ Party Tents', banner3:'🪑 Tables & Chairs',
     banner4:'🍿 Concession Machines', banner5:'💡 Party Lighting', banner6:'📸 Photo Booths',
@@ -104,11 +104,11 @@ const translations = {
     ft_built:'Built with <span style="color:var(--red)">♥</span> for every celebration',
   },
   es: {
-    nav_services:'Servicios', nav_why:'Por Qué Nosotros', nav_how:'Cómo Funciona', nav_reviews:'Reseñas', nav_pricing:'Precios', nav_cta:'Reservar',
+    nav_home:'Inicio', nav_services:'Servicios', nav_why:'Por Qué Nosotros', nav_how:'Cómo Funciona', nav_reviews:'Reseñas', nav_pricing:'Precios', nav_cta:'Reservar', ft_ql_faq:'Preguntas Frecuentes', ft_svc_title:'Servicios de Fiesta', ft_svc_note:'Pregúntenos sobre:', ft_svc1:'🍹 Barras Móviles', ft_svc2:'🎧 Servicios de DJ', ft_svc3:'🍽️ Meseros de Eventos', ft_svc4:'📸 Cabinas de Fotos',
     hero_badge:'Sirviendo con orgullo a Bakersfield, Shafter & Arvin desde 2019',
     hero_title:'La Empresa de<br />\n      <span class="accent-blue">Rentas de Fiesta</span><br />\n      <span class="accent-red">#1 en Bakersfield</span>\n      <span class="accent-star"> ★</span>',
     hero_sub:'Rentas de fiesta premium, entregadas, instaladas y sin estrés. Brincolines, carpas, botanas, iluminación y más — todo lo que necesitas para la celebración perfecta.',
-    hero_btn1:'Reservar Ahora', hero_btn2:'Ver Rentas',
+    hero_btn1:'Reservar Ahora', hero_btn2:'Ver Precios →',
     hero_stat1:'Eventos Realizados', hero_stat2:'Años de Experiencia', hero_stat3:'Calificación Promedio',
     banner1:'🎈 Brincolines', banner2:'⛺ Carpas para Fiestas', banner3:'🪑 Mesas y Sillas',
     banner4:'🍿 Máquinas de Botanas', banner5:'💡 Iluminación', banner6:'📸 Cabinas de Fotos',
