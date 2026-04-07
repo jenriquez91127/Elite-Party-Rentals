@@ -9,6 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Hide native number input spinners */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] { -moz-appearance: textfield; }
+
+    /* Price estimator visibility */
+    #qo-estimator { padding-bottom: 48px; }
+    @media (max-width: 600px) {
+      #qo-estimator { overflow-y: auto; }
+    }
+  </style>
 </head>
 <body>
 
@@ -79,14 +94,14 @@
             <span class="qo-section-label" data-i18n="qo_items_lbl">Select Items &amp; Quantities</span>
             <div class="qo-checklist">
 
-              <!-- Jumper -->
+              <!-- Jumper / Bounce House -->
               <div class="qo-item" id="qo-row-jumper" data-price="150">
                 <label class="qo-check-cell" for="qo-cb-jumper">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-jumper" data-row="qo-row-jumper" />
                 </label>
                 <label class="qo-item-label" for="qo-cb-jumper">
-                  <span class="qo-item-name" data-i18n="qo_i1_name">Jumper / Bounce House</span>
-                  <span class="qo-item-hint" data-i18n="qo_i1_hint">Wet or dry, standard 13×13</span>
+                  <span class="qo-item-name">Jumper / Bounce House</span>
+                  <span class="qo-item-hint">Wet or dry, standard 13×13</span>
                 </label>
                 <div class="qo-controls">
                   <div class="qo-qty-wrap">
@@ -97,14 +112,50 @@
                 </div>
               </div>
 
+              <!-- Waterslide -->
+              <div class="qo-item" id="qo-row-waterslide" data-price="200">
+                <label class="qo-check-cell" for="qo-cb-waterslide">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-waterslide" data-row="qo-row-waterslide" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-waterslide">
+                  <span class="qo-item-name">Waterslide</span>
+                  <span class="qo-item-hint">Wet, standard size</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-waterslide" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-waterslide" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-waterslide" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Obstacle Course -->
+              <div class="qo-item" id="qo-row-obstacle" data-price="175">
+                <label class="qo-check-cell" for="qo-cb-obstacle">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-obstacle" data-row="qo-row-obstacle" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-obstacle">
+                  <span class="qo-item-name">Obstacle Course</span>
+                  <span class="qo-item-hint">Inflatable, full size</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-obstacle" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-obstacle" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-obstacle" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Tables -->
               <div class="qo-item" id="qo-row-tables" data-price="8">
                 <label class="qo-check-cell" for="qo-cb-tables">
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-tables" data-row="qo-row-tables" />
                 </label>
                 <label class="qo-item-label" for="qo-cb-tables">
-                  <span class="qo-item-name" data-i18n="qo_i2_name">Tables</span>
-                  <span class="qo-item-hint" data-i18n="qo_i2_hint">6 ft rectangle</span>
+                  <span class="qo-item-name">Tables</span>
+                  <span class="qo-item-hint">6 ft rectangle</span>
                 </label>
                 <div class="qo-controls">
                   <div class="qo-qty-wrap">
@@ -121,8 +172,8 @@
                   <input class="qo-checkbox" type="checkbox" id="qo-cb-chairs" data-row="qo-row-chairs" />
                 </label>
                 <label class="qo-item-label" for="qo-cb-chairs">
-                  <span class="qo-item-name" data-i18n="qo_i3_name">Chairs</span>
-                  <span class="qo-item-hint" data-i18n="qo_i3_hint">White folding</span>
+                  <span class="qo-item-name">Chairs</span>
+                  <span class="qo-item-hint">White folding</span>
                 </label>
                 <div class="qo-controls">
                   <div class="qo-qty-wrap">
@@ -133,40 +184,95 @@
                 </div>
               </div>
 
-              <!-- Canopy -->
-              <div class="qo-item" id="qo-row-canopy" data-price="85">
-                <label class="qo-check-cell" for="qo-cb-canopy">
-                  <input class="qo-checkbox" type="checkbox" id="qo-cb-canopy" data-row="qo-row-canopy" />
+              <!-- Kids Tables & Chairs -->
+              <div class="qo-item" id="qo-row-kids-tables" data-price="25">
+                <label class="qo-check-cell" for="qo-cb-kids-tables">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-kids-tables" data-row="qo-row-kids-tables" />
                 </label>
-                <label class="qo-item-label" for="qo-cb-canopy">
-                  <span class="qo-item-name" data-i18n="qo_i4_name">Canopy / Tent</span>
-                  <span class="qo-item-hint" data-i18n="qo_i4_hint">10×10</span>
+                <label class="qo-item-label" for="qo-cb-kids-tables">
+                  <span class="qo-item-name">Kids Tables &amp; Chairs</span>
+                  <span class="qo-item-hint">Small plastic, kids size</span>
                 </label>
                 <div class="qo-controls">
                   <div class="qo-qty-wrap">
-                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-canopy" data-delta="-1">−</button>
-                    <input class="qo-qty-input" type="number" id="qo-qty-canopy" value="1" min="1" max="99" />
-                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-canopy" data-delta="1">+</button>
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-kids-tables" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-kids-tables" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-kids-tables" data-delta="1">+</button>
                   </div>
                 </div>
               </div>
 
-              <!-- Concession -->
-              <div class="qo-item" id="qo-row-concession" data-price="75">
-                <label class="qo-check-cell" for="qo-cb-concession">
-                  <input class="qo-checkbox" type="checkbox" id="qo-cb-concession" data-row="qo-row-concession" />
+              <!-- Canopy / Tent -->
+              <div class="qo-item" id="qo-row-canopy" data-price="45">
+                <label class="qo-check-cell" for="qo-cb-canopy">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-canopy" data-row="qo-row-canopy" />
                 </label>
-                <label class="qo-item-label" for="qo-cb-concession">
-                  <span class="qo-item-name" data-i18n="qo_i5_name">Concession Machine</span>
-                  <span class="qo-item-hint" data-i18n="qo_i5_hint">Popcorn, snow cone, or cotton candy</span>
+                <label class="qo-item-label" for="qo-cb-canopy">
+                  <span class="qo-item-name">Canopy / Tent</span>
+                  <span class="qo-item-hint">Select size when checked</span>
                 </label>
                 <div class="qo-controls">
                   <div class="qo-subselect">
-                    <select id="qo-concession-type">
-                      <option value="popcorn" data-i18n="qo_con1">🍿 Popcorn</option>
-                      <option value="snowcone" data-i18n="qo_con2">🧊 Snow Cone</option>
-                      <option value="cotton" data-i18n="qo_con3">🍭 Cotton Candy</option>
+                    <select id="qo-canopy-size" data-item="canopy-size">
+                      <option value="10x10">10×10</option>
+                      <option value="10x20">10×20</option>
+                      <option value="20x20">20×20</option>
+                      <option value="20x40">20×40</option>
                     </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Popcorn Machine -->
+              <div class="qo-item" id="qo-row-popcorn" data-price="55">
+                <label class="qo-check-cell" for="qo-cb-popcorn">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-popcorn" data-row="qo-row-popcorn" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-popcorn">
+                  <span class="qo-item-name">Popcorn Machine</span>
+                  <span class="qo-item-hint">Fresh popcorn</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-popcorn" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-popcorn" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-popcorn" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Snow Cone Machine -->
+              <div class="qo-item" id="qo-row-snowcone" data-price="55">
+                <label class="qo-check-cell" for="qo-cb-snowcone">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-snowcone" data-row="qo-row-snowcone" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-snowcone">
+                  <span class="qo-item-name">Snow Cone Machine</span>
+                  <span class="qo-item-hint">Flavored snow cones</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-snowcone" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-snowcone" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-snowcone" data-delta="1">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cotton Candy Machine -->
+              <div class="qo-item" id="qo-row-cotton-candy" data-price="55">
+                <label class="qo-check-cell" for="qo-cb-cotton-candy">
+                  <input class="qo-checkbox" type="checkbox" id="qo-cb-cotton-candy" data-row="qo-row-cotton-candy" />
+                </label>
+                <label class="qo-item-label" for="qo-cb-cotton-candy">
+                  <span class="qo-item-name">Cotton Candy Machine</span>
+                  <span class="qo-item-hint">Spun fresh</span>
+                </label>
+                <div class="qo-controls">
+                  <div class="qo-qty-wrap">
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-cotton-candy" data-delta="-1">−</button>
+                    <input class="qo-qty-input" type="number" id="qo-qty-cotton-candy" value="1" min="1" max="99" />
+                    <button type="button" class="qo-qty-btn" data-qty="qo-qty-cotton-candy" data-delta="1">+</button>
                   </div>
                 </div>
               </div>
@@ -402,6 +508,9 @@
   var FORMSPREE_QUICK  = 'https://formspree.io/f/mpqolgzj';
   var FORMSPREE_CUSTOM = 'https://formspree.io/f/mpqolgzj';
 
+  // Flag: sessionStorage package prefill is active — skip localStorage restore for this load
+  var __qoSessionPrefill = !!sessionStorage.getItem('selectedPackage');
+
   /* ---- Form submit (legacy helper, kept for safety) ---- */
   function handleSubmit(e, form) {
     e.preventDefault();
@@ -445,10 +554,49 @@
         if (parseInt(this.value, 10) < min || isNaN(parseInt(this.value, 10))) this.value = min;
       });
     });
+
+    /* ---- localStorage save ---- */
+    var qoItems = ['jumper','waterslide','obstacle','tables','chairs','kids-tables','canopy','popcorn','snowcone','cotton-candy'];
+
+    function saveQuickOrderState() {
+      var state = {};
+      qoItems.forEach(function (key) {
+        var cb      = document.getElementById('qo-cb-' + key);
+        var qtyEl   = document.getElementById('qo-qty-' + key);
+        state[key]  = {
+          checked: cb ? cb.checked : false,
+          qty:     qtyEl ? (parseInt(qtyEl.value, 10) || 1) : 1
+        };
+      });
+      var sizeEl = document.getElementById('qo-canopy-size');
+      state['canopy-size'] = sizeEl ? sizeEl.value : '10x10';
+      localStorage.setItem('quickOrderState', JSON.stringify(state));
+    }
+
+    // Hook save onto every relevant control
+    document.querySelectorAll('.qo-checkbox').forEach(function (cb) {
+      cb.addEventListener('change', saveQuickOrderState);
+    });
+    document.querySelectorAll('.qo-qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', saveQuickOrderState);
+    });
+    document.querySelectorAll('.qo-qty-input').forEach(function (inp) {
+      inp.addEventListener('input', saveQuickOrderState);
+    });
+    var canopySizeEl = document.getElementById('qo-canopy-size');
+    if (canopySizeEl) canopySizeEl.addEventListener('change', saveQuickOrderState);
   })();
 
   /* ---- Quick Order price estimator ---- */
   (function () {
+    var itemPrices = {
+      jumper: 150, waterslide: 200, obstacle: 175,
+      chairs: 1.50, tables: 8, 'kids-tables': 25,
+      'canopy-10x10': 45, 'canopy-10x20': 75, 'canopy-20x20': 120, 'canopy-20x40': 200,
+      popcorn: 55, snowcone: 55, 'cotton-candy': 55,
+      hotdog: 45, generator: 85, heater: 45
+    };
+
     var estimator = document.getElementById('qo-estimator');
     var estList   = document.getElementById('qo-est-list');
     var estAmount = document.getElementById('qo-est-amount');
@@ -469,11 +617,27 @@
       var subtotal = 0;
 
       rows.forEach(function (cb) {
-        var row      = document.getElementById(cb.dataset.row);
-        var price    = parseFloat(row.dataset.price) || 0;
-        var name     = row.querySelector('.qo-item-name').textContent.trim();
-        var qtyInput = row.querySelector('.qo-qty-input');
-        var qty      = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
+        var row  = document.getElementById(cb.dataset.row);
+        var key  = cb.dataset.row.replace('qo-row-', '');
+        var name = row.querySelector('.qo-item-name').textContent.trim();
+
+        // Canopy: resolve price key from size selector (no qty stepper)
+        var priceKey = key;
+        var qty = 1;
+        if (key === 'canopy') {
+          var sizeEl = document.getElementById('qo-canopy-size');
+          priceKey = 'canopy-' + (sizeEl ? sizeEl.value : '10x10');
+        } else {
+          var qtyInput = row.querySelector('.qo-qty-input');
+          qty = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
+        }
+
+        var price = itemPrices[priceKey];
+        if (price === undefined) {
+          console.warn('itemPrices: unknown key "' + priceKey + '"');
+          return;
+        }
+
         var lineTotal = price * qty;
         subtotal += lineTotal;
 
@@ -500,6 +664,10 @@
     document.querySelectorAll('#qo-form .qo-qty-input').forEach(function (input) {
       input.addEventListener('input', updateEstimate);
     });
+
+    // Canopy size change triggers re-estimate
+    var canopySizeEl = document.getElementById('qo-canopy-size');
+    if (canopySizeEl) canopySizeEl.addEventListener('change', updateEstimate);
   })();
 
   /* ---- Quick Order submit ---- */
@@ -704,6 +872,22 @@
     };
   })();
 
+  /* ---- Package map for prefill ---- */
+  var packageMap = {
+    'Basic Gathering': {
+      pills: ['Tables &amp; Chairs'],
+      vision: 'Package selected: Basic Gathering\n10 folding chairs + 2 round tables. Delivery included.\nPlease confirm details and availability.'
+    },
+    'Backyard Fiesta': {
+      pills: ['Tables &amp; Chairs', 'Tent/Canopy'],
+      vision: 'Package selected: Backyard Fiesta\n50 chairs, 5 tables + linens, 10×20 tent. Delivery & setup included.\nPlease confirm details and availability.'
+    },
+    'Full Celebration': {
+      pills: ['Tables &amp; Chairs', 'Tent/Canopy', 'Bounce House'],
+      vision: 'Package selected: Full Celebration\n100 chairs, 10 tables + linens, 20×20 tent, bounce house. Full setup & teardown.\nPlease confirm details and availability.'
+    }
+  };
+
   /* ---- Path chooser toggle ---- */
   (function () {
     const btnQuick  = document.getElementById('btn-quick');
@@ -729,10 +913,6 @@
         clickedPanel.classList.add('open');
         clickedBtn.classList.add('active');
         clickedBtn.setAttribute('aria-expanded', 'true');
-        // Scroll panel into view after transition starts
-        setTimeout(() => {
-          clickedPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 80);
       }
     }
 
@@ -742,12 +922,31 @@
     btnCustom.addEventListener('click', () =>
       toggle(btnCustom, panelCustom, btnQuick, panelQuick));
 
-    // Auto-open panel if ?package= param is present (from pricing.html pkg-btn redirect)
+    // Auto-open panel if ?package= param is present (from pricing.html)
     var params = new URLSearchParams(window.location.search);
     var pkgParam = params.get('package');
-    if (pkgParam) {
+    var pathParam = params.get('path');
+
+    if (pkgParam && pathParam === 'custom') {
+      // "Add to Cart" → Custom Quote path with prefill
+      var map = packageMap[pkgParam];
+      if (map) {
+        // Prefill vision textarea
+        var visionEl = document.getElementById('cq-vision');
+        if (visionEl) visionEl.value = map.vision;
+        // Select matching pills
+        document.querySelectorAll('.cq-pill').forEach(function (pill) {
+          if (map.pills.indexOf(pill.dataset.value) !== -1) pill.classList.add('selected');
+        });
+      }
+      btnCustom.click();
+    } else if (pkgParam) {
+      // "Get this package" → Quick Order path
       var hiddenInput = document.getElementById('qo-package');
       if (hiddenInput) hiddenInput.value = pkgParam;
+      btnQuick.click();
+    } else {
+      // Default: open Quick Order on page load
       btnQuick.click();
     }
   })();
@@ -764,6 +963,111 @@
 
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+  });
+
+  /* ---- sessionStorage package prefill ---- */
+  document.addEventListener('DOMContentLoaded', function () {
+    var raw = sessionStorage.getItem('selectedPackage');
+    if (!raw) return;
+
+    var data;
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    sessionStorage.removeItem('selectedPackage');
+
+    // Open Quick Order panel if not already open
+    var panelQuick = document.getElementById('form-quick');
+    if (panelQuick && !panelQuick.classList.contains('open')) {
+      document.getElementById('btn-quick').click();
+    }
+
+    // Checkbox ID map keyed by inventory data-item name
+    var itemMap = {
+      'jumper':       'qo-cb-jumper',
+      'waterslide':   'qo-cb-waterslide',
+      'obstacle':     'qo-cb-obstacle',
+      'tables':       'qo-cb-tables',
+      'chairs':       'qo-cb-chairs',
+      'kids-tables':  'qo-cb-kids-tables',
+      'canopy':       'qo-cb-canopy',
+      'popcorn':      'qo-cb-popcorn',
+      'snowcone':     'qo-cb-snowcone',
+      'cotton-candy': 'qo-cb-cotton-candy'
+    };
+
+    var items = data.items || {};
+    Object.keys(items).forEach(function (key) {
+      var qty = items[key];
+      if (!qty || qty <= 0) return;
+
+      var cbId = itemMap[key];
+      if (!cbId) return;
+      var cb = document.getElementById(cbId);
+      if (!cb) return;
+
+      // Check checkbox and trigger show/hide
+      cb.checked = true;
+      cb.dispatchEvent(new Event('change'));
+
+      // Set qty stepper value
+      var row = document.getElementById(cb.dataset.row);
+      if (row) {
+        var qtyInput = row.querySelector('.qo-qty-input');
+        if (qtyInput) {
+          qtyInput.value = qty;
+          qtyInput.dispatchEvent(new Event('input'));
+        }
+      }
+
+      // Default canopy size to 10x10
+      if (key === 'canopy') {
+        var sizeSelect = document.querySelector('[data-item="canopy-size"]');
+        if (sizeSelect) sizeSelect.value = '10x10';
+      }
+    });
+
+    // Scroll to Quick Order form
+    setTimeout(function () {
+      var panel = document.getElementById('form-quick');
+      if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+  });
+
+  /* ---- localStorage restore ---- */
+  document.addEventListener('DOMContentLoaded', function () {
+    // Skip if sessionStorage package prefill is handling this load
+    if (__qoSessionPrefill) return;
+
+    var raw = localStorage.getItem('quickOrderState');
+    if (!raw) return;
+
+    var state;
+    try { state = JSON.parse(raw); } catch (e) { return; }
+
+    var keys = ['jumper','waterslide','obstacle','tables','chairs','kids-tables','canopy','popcorn','snowcone','cotton-candy'];
+    keys.forEach(function (key) {
+      var item = state[key];
+      if (!item) return;
+
+      var cb = document.getElementById('qo-cb-' + key);
+      if (!cb) return;
+
+      cb.checked = !!item.checked;
+      cb.dispatchEvent(new Event('change')); // triggers .checked class on row
+
+      if (item.checked) {
+        var qtyEl = document.getElementById('qo-qty-' + key);
+        if (qtyEl) {
+          qtyEl.value = item.qty || 1;
+          qtyEl.dispatchEvent(new Event('input')); // updates estimator
+        }
+      }
+    });
+
+    // Restore canopy size
+    if (state['canopy-size']) {
+      var sizeEl = document.getElementById('qo-canopy-size');
+      if (sizeEl) sizeEl.value = state['canopy-size'];
+    }
   });
 </script>
 </body>
