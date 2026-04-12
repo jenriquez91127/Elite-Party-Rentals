@@ -1905,8 +1905,8 @@ footer {
 
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
 }
 
 .pkg-card {
@@ -2018,9 +2018,6 @@ footer {
   transform: translateY(-1px);
 }
 
-@media (max-width: 900px) {
-  .packages-grid { grid-template-columns: 1fr; }
-}
 
 @media (max-width: 600px) {
   .pricing-filter-bar { gap: 8px; }
