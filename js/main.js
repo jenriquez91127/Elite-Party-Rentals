@@ -317,6 +317,21 @@ document.getElementById('hamburger').addEventListener('click', function () {
   if (open) { links.style.display = ''; }
 });
 
+/* ---- Mobile footer collapsible columns ---- */
+if (window.innerWidth <= 768) {
+  document.querySelectorAll('.footer-col h4').forEach(function (h4) {
+    h4.addEventListener('click', function () {
+      const ul = h4.nextElementSibling && h4.nextElementSibling.tagName === 'UL'
+        ? h4.nextElementSibling
+        : h4.parentElement.querySelector('ul');
+      if (ul) {
+        h4.classList.toggle('open');
+        ul.classList.toggle('open');
+      }
+    });
+  });
+}
+
 /* ---- Smooth nav scroll ---- */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function (e) {
