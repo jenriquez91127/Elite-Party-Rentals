@@ -20,8 +20,24 @@
 
     /* Price estimator visibility */
     #qo-estimator { padding-bottom: 48px; }
-    @media (max-width: 600px) {
-      #qo-estimator { overflow-y: auto; }
+
+    /* Mobile: prevent calculator cutoff */
+    @media (max-width: 768px) {
+      #form-quick {
+        max-height: none;
+        overflow: visible;
+      }
+      .booking-panel-inner {
+        padding-bottom: 80px;
+        overflow-y: visible;
+      }
+      #qo-estimator {
+        margin-top: 24px;
+        padding-bottom: 48px;
+      }
+      #qo-form-wrap {
+        padding-bottom: 80px;
+      }
     }
   </style>
 </head>
@@ -916,11 +932,25 @@
       }
     }
 
-    btnQuick.addEventListener('click', () =>
-      toggle(btnQuick, panelQuick, btnCustom, panelCustom));
+    btnQuick.addEventListener('click', () => {
+      toggle(btnQuick, panelQuick, btnCustom, panelCustom);
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          const target = document.getElementById('form-quick');
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
 
-    btnCustom.addEventListener('click', () =>
-      toggle(btnCustom, panelCustom, btnQuick, panelQuick));
+    btnCustom.addEventListener('click', () => {
+      toggle(btnCustom, panelCustom, btnQuick, panelQuick);
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          const target = document.getElementById('form-custom');
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
 
     // Auto-open panel if ?package= param is present (from pricing.html)
     var params = new URLSearchParams(window.location.search);
