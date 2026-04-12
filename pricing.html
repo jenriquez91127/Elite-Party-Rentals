@@ -37,6 +37,18 @@
       color: #fff;
       border-color: var(--red);
     }
+
+    /* ---- Card Carousel ---- */
+    .card-carousel { position: relative; width: 100%; height: 200px; overflow: hidden; border-radius: 12px 12px 0 0; background: var(--card-bg, #0f1e35); }
+    .carousel-track { display: flex; height: 100%; transition: transform 0.35s ease; }
+    .carousel-slide { min-width: 100%; height: 200px; object-fit: cover; flex-shrink: 0; }
+    .carousel-prev, .carousel-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,22,40,0.65); color: #fff; border: none; padding: 6px 11px; border-radius: 6px; cursor: pointer; font-size: 1rem; z-index: 2; transition: background 0.2s; }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+    .carousel-prev:hover, .carousel-next:hover { background: rgba(10,22,40,0.95); }
+    .carousel-dots { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 2; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: background 0.2s; }
+    .dot.active { background: #fff; }
   </style>
 </head>
 <body>
@@ -89,15 +101,33 @@
     <!-- INFLATABLES -->
     <div class="pricing-item reveal" data-category="inflatables">
       <span class="pricing-badge">Popular</span>
-      <div class="pricing-icon">🎪</div>
+      <div class="card-carousel" data-card="jumper">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Jumper+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Jumper+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Jumper+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Jumper / Bounce House</div>
       <p class="pricing-desc">Wet or dry, standard 13×13</p>
-      <div class="pricing-price">$150<span class="price-unit">/day</span></div>
+      <div class="pricing-price">$100<span class="price-unit">/day</span></div>
       <button class="btn-add-package" data-package="individual" data-item="jumper" data-jumper="1">Add to Cart →</button>
     </div>
 
     <div class="pricing-item reveal" data-category="inflatables">
-      <div class="pricing-icon">🌊</div>
+      <div class="card-carousel" data-card="waterslide">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Waterslide+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Waterslide+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Waterslide+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Waterslide</div>
       <p class="pricing-desc">Wet, standard size</p>
       <div class="pricing-price">$200<span class="price-unit">/day</span></div>
@@ -105,17 +135,53 @@
     </div>
 
     <div class="pricing-item reveal" data-category="inflatables">
-      <div class="pricing-icon">🏃</div>
+      <span class="pricing-badge">Popular</span>
+      <div class="card-carousel" data-card="waterslide-combo">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Waterslide+Combo+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Waterslide+Combo+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Waterslide+Combo+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+      <div class="pricing-name">Waterslide &amp; Bounce House Combo</div>
+      <p class="pricing-desc">Best of both — wet slide + jumper</p>
+      <div class="pricing-price">$250<span class="price-unit">/day</span></div>
+      <button class="btn-add-package" data-package="individual" data-item="waterslide-combo" data-waterslide="1" data-jumper="1">Add to Cart →</button>
+    </div>
+
+    <div class="pricing-item reveal" data-category="inflatables">
+      <div class="card-carousel" data-card="obstacle">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Obstacle+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Obstacle+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Obstacle+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Obstacle Course</div>
       <p class="pricing-desc">Inflatable, full size</p>
-      <div class="pricing-price">$175<span class="price-unit">/day</span></div>
+      <div class="pricing-price">$300<span class="price-unit">/day</span></div>
       <button class="btn-add-package" data-package="individual" data-item="obstacle" data-obstacle="1">Add to Cart →</button>
     </div>
 
     <!-- TABLES & CHAIRS -->
     <div class="pricing-item reveal" data-category="tables-chairs">
       <span class="pricing-badge">Popular</span>
-      <div class="pricing-icon">🪑</div>
+      <div class="card-carousel" data-card="folding-chairs">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Folding+Chairs+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Folding+Chairs+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Folding+Chairs+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Folding Chairs</div>
       <p class="pricing-desc">White</p>
       <div class="pricing-price">$1.50<span class="price-unit">/each</span></div>
@@ -123,17 +189,52 @@
     </div>
 
     <div class="pricing-item reveal" data-category="tables-chairs">
-      <div class="pricing-icon">🍽️</div>
+      <div class="card-carousel" data-card="tables-6ft">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Tables+6ft+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Tables+6ft+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Tables+6ft+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Tables</div>
       <p class="pricing-desc">6 ft rectangle</p>
-      <div class="pricing-price">$8<span class="price-unit">/each</span></div>
+      <div class="pricing-price">$10<span class="price-unit">/each</span></div>
       <button class="btn-add-package" data-package="individual" data-item="tables" data-tables="1">Add to Cart →</button>
     </div>
 
     <div class="pricing-item reveal" data-category="tables-chairs">
-      <div class="pricing-icon">🧒</div>
+      <div class="card-carousel" data-card="round-tables">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Round+Tables+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Round+Tables+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Round+Tables+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+      <div class="pricing-name">Round Tables</div>
+      <p class="pricing-desc">60" round, seats 8–10</p>
+      <div class="pricing-price">$14<span class="price-unit">/each</span></div>
+      <button class="btn-add-package" data-package="individual" data-item="round-tables" data-tables="1">Add to Cart →</button>
+    </div>
+
+    <div class="pricing-item reveal" data-category="tables-chairs">
+      <div class="card-carousel" data-card="kids-tables">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Kids+Tables+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Kids+Tables+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Kids+Tables+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Kids Tables &amp; Chairs</div>
-      <p class="pricing-desc">Small plastic, kids size</p>
+      <p class="pricing-desc">1 table + 12 kids chairs</p>
       <div class="pricing-price">$25<span class="price-unit">/set</span></div>
       <button class="btn-add-package" data-package="individual" data-item="kids-tables" data-kids-tables="1">Add to Cart →</button>
     </div>
@@ -141,7 +242,16 @@
     <!-- CANOPIES -->
     <div class="pricing-item reveal" data-category="canopies">
       <span class="pricing-badge">Popular</span>
-      <div class="pricing-icon">⛺</div>
+      <div class="card-carousel" data-card="canopy-10x10">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Canopy+10x10+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Canopy+10x10+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Canopy+10x10+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Canopy / Tent — 10×10</div>
       <p class="pricing-desc">Shade &amp; light weather protection</p>
       <div class="pricing-price">$45</div>
@@ -149,7 +259,16 @@
     </div>
 
     <div class="pricing-item reveal" data-category="canopies">
-      <div class="pricing-icon">⛺</div>
+      <div class="card-carousel" data-card="canopy-10x20">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Canopy+10x20+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Canopy+10x20+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Canopy+10x20+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Canopy / Tent — 10×20</div>
       <p class="pricing-desc">Medium coverage for mid-size events</p>
       <div class="pricing-price">$75</div>
@@ -157,7 +276,16 @@
     </div>
 
     <div class="pricing-item reveal" data-category="canopies">
-      <div class="pricing-icon">🏕️</div>
+      <div class="card-carousel" data-card="canopy-20x20">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Canopy+20x20+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Canopy+20x20+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Canopy+20x20+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Canopy / Tent — 20×20</div>
       <p class="pricing-desc">Large events and gatherings</p>
       <div class="pricing-price">$120</div>
@@ -165,7 +293,16 @@
     </div>
 
     <div class="pricing-item reveal" data-category="canopies">
-      <div class="pricing-icon">🏕️</div>
+      <div class="card-carousel" data-card="canopy-20x40">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Canopy+20x40+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Canopy+20x40+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Canopy+20x40+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Canopy / Tent — 20×40</div>
       <p class="pricing-desc">Extra-large, full coverage</p>
       <div class="pricing-price">$200</div>
@@ -175,7 +312,16 @@
     <!-- CONCESSIONS -->
     <div class="pricing-item reveal" data-category="concessions">
       <span class="pricing-badge">Popular</span>
-      <div class="pricing-icon">🍿</div>
+      <div class="card-carousel" data-card="popcorn">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Popcorn+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Popcorn+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Popcorn+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Popcorn Machine</div>
       <p class="pricing-desc">Fresh popcorn</p>
       <div class="pricing-price">$55</div>
@@ -183,7 +329,16 @@
     </div>
 
     <div class="pricing-item reveal" data-category="concessions">
-      <div class="pricing-icon">🧊</div>
+      <div class="card-carousel" data-card="snow-cone">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Snow+Cone+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Snow+Cone+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Snow+Cone+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Snow Cone Machine</div>
       <p class="pricing-desc">Flavored snow cones</p>
       <div class="pricing-price">$55</div>
@@ -191,24 +346,51 @@
     </div>
 
     <div class="pricing-item reveal" data-category="concessions">
-      <div class="pricing-icon">🍭</div>
+      <div class="card-carousel" data-card="cotton-candy">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Cotton+Candy+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Cotton+Candy+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Cotton+Candy+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Cotton Candy Machine</div>
       <p class="pricing-desc">Spun fresh</p>
-      <div class="pricing-price">$55</div>
+      <div class="pricing-price">$40</div>
       <button class="btn-add-package" data-package="individual" data-item="cotton-candy" data-cotton-candy="1">Add to Cart →</button>
     </div>
 
     <div class="pricing-item reveal" data-category="concessions">
-      <div class="pricing-icon">🌭</div>
+      <div class="card-carousel" data-card="hotdog">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Hotdog+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Hotdog+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Hotdog+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Hotdog Roller Machine</div>
       <p class="pricing-desc">Classic event favorite</p>
-      <div class="pricing-price">$45</div>
+      <div class="pricing-price">$35</div>
       <button class="btn-add-package" data-package="individual" data-item="hotdog" data-hotdog="1">Add to Cart →</button>
     </div>
 
     <!-- EXTRAS -->
     <div class="pricing-item reveal" data-category="extras">
-      <div class="pricing-icon">⚡</div>
+      <div class="card-carousel" data-card="generator">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Generator+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Generator+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Generator+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Power Generator</div>
       <p class="pricing-desc">Keep everything running</p>
       <div class="pricing-price">$85</div>
@@ -216,7 +398,16 @@
     </div>
 
     <div class="pricing-item reveal" data-category="extras">
-      <div class="pricing-icon">🔥</div>
+      <div class="card-carousel" data-card="patio-heater">
+        <div class="carousel-track">
+          <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Patio+Heater+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Patio+Heater+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+          <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Patio+Heater+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-next" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
       <div class="pricing-name">Patio Heater</div>
       <p class="pricing-desc">Stay warm at evening events</p>
       <div class="pricing-price">$45</div>
@@ -235,7 +426,17 @@
       <!-- Card 1: Birthday Essentials -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Starter</span>
-        <div class="pkg-name">🎂 Birthday Essentials</div>
+        <div class="card-carousel" data-card="birthday-essentials">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Birthday+Essentials+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Birthday+Essentials+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Birthday+Essentials+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Birthday Essentials</div>
         <div class="pkg-price">$TBD</div>
         <ul class="pkg-list">
           <li>1 Jumper / Bounce House</li>
@@ -251,7 +452,17 @@
       <!-- Card 2: Cool Down -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Popular</span>
-        <div class="pkg-name">❄️ Cool Down</div>
+        <div class="card-carousel" data-card="cool-down">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Cool+Down+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Cool+Down+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Cool+Down+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Cool Down</div>
         <div class="pkg-price">$TBD</div>
         <ul class="pkg-list">
           <li>1 Waterslide</li>
@@ -267,7 +478,17 @@
       <!-- Card 3: Kids Zone -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Popular</span>
-        <div class="pkg-name">🧒 Kids Zone</div>
+        <div class="card-carousel" data-card="kids-zone">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Kids+Zone+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Kids+Zone+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Kids+Zone+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Kids Zone</div>
         <div class="pkg-price">$TBD</div>
         <ul class="pkg-list">
           <li>1 Jumper / Bounce House</li>
@@ -283,7 +504,17 @@
       <!-- Card 4: Playday -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Popular</span>
-        <div class="pkg-name">🎡 Playday</div>
+        <div class="card-carousel" data-card="playday">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Playday+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Playday+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Playday+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Playday</div>
         <div class="pkg-price">$TBD</div>
         <ul class="pkg-list">
           <li>1 Obstacle Course</li>
@@ -299,7 +530,17 @@
       <!-- Card 5: Summer Splash -->
       <div class="pkg-card pkg-featured reveal" data-category="packages">
         <span class="pkg-label pkg-label-featured">Popular</span>
-        <div class="pkg-name">🌊 Summer Splash</div>
+        <div class="card-carousel" data-card="summer-splash">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Summer+Splash+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Summer+Splash+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Summer+Splash+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Summer Splash</div>
         <div class="pkg-price">$299</div>
         <ul class="pkg-list">
           <li>1 Waterslide</li>
@@ -314,7 +555,17 @@
       <!-- Card 6: Snack Attack -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Popular</span>
-        <div class="pkg-name">🍿 Snack Attack</div>
+        <div class="card-carousel" data-card="snack-attack">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Snack+Attack+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Snack+Attack+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Snack+Attack+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Snack Attack</div>
         <div class="pkg-price">$TBD</div>
         <ul class="pkg-list">
           <li>Cotton Candy Machine</li>
@@ -332,7 +583,17 @@
       <!-- Card 7: Carnival Day -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Premium</span>
-        <div class="pkg-name">🎪 Carnival Day</div>
+        <div class="card-carousel" data-card="carnival-day">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Carnival+Day+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Carnival+Day+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Carnival+Day+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="pkg-name">Carnival Day</div>
         <div class="pkg-price">$399</div>
         <ul class="pkg-list">
           <li>1 Jumper / Bounce House</li>
@@ -351,6 +612,16 @@
       <!-- Card 8: Basic Gathering -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Starter</span>
+        <div class="card-carousel" data-card="basic-gathering">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Basic+Gathering+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Basic+Gathering+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Basic+Gathering+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
         <div class="pkg-name">Basic Gathering</div>
         <div class="pkg-price">$149</div>
         <ul class="pkg-list">
@@ -365,6 +636,16 @@
       <!-- Card 9: Backyard Fiesta -->
       <div class="pkg-card pkg-featured reveal" data-category="packages">
         <span class="pkg-label pkg-label-featured">Most Popular</span>
+        <div class="card-carousel" data-card="backyard-fiesta">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Backyard+Fiesta+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Backyard+Fiesta+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Backyard+Fiesta+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
         <div class="pkg-name">Backyard Fiesta</div>
         <div class="pkg-price">$349</div>
         <ul class="pkg-list">
@@ -381,6 +662,16 @@
       <!-- Card 10: Full Celebration -->
       <div class="pkg-card reveal" data-category="packages">
         <span class="pkg-label">Premium</span>
+        <div class="card-carousel" data-card="full-celebration">
+          <div class="carousel-track">
+            <img src="https://placehold.co/600x240/1A7FE8/FFFFFF?text=Full+Celebration+1" alt="Photo 1" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/0A1628/FFFFFF?text=Full+Celebration+2" alt="Photo 2" class="carousel-slide" loading="lazy" />
+            <img src="https://placehold.co/600x240/E8231A/FFFFFF?text=Full+Celebration+3" alt="Photo 3" class="carousel-slide" loading="lazy" />
+          </div>
+          <button class="carousel-prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
         <div class="pkg-name">Full Celebration</div>
         <div class="pkg-price">$649</div>
         <ul class="pkg-list">
@@ -476,6 +767,24 @@
 
 <script src="js/main.js"></script>
 <script>
+  /* ---- Card Carousels ---- */
+  document.querySelectorAll('.card-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prev = carousel.querySelector('.carousel-prev');
+    const next = carousel.querySelector('.carousel-next');
+    let current = 0;
+    function goTo(n) {
+      current = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    prev.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
+    next.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  });
+
   /* ---- Formspree endpoints ---- */
   var FORMSPREE_QUICK  = 'https://formspree.io/f/mpqolgzj';
   var FORMSPREE_CUSTOM = 'https://formspree.io/f/mpqolgzj';
