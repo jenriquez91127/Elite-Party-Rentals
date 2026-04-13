@@ -7,7 +7,8 @@
   <title>Pricing — Elite Party Rentals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
   <style>
     html, body { background-color: var(--navy, #0A1628); margin: 0; padding: 0; overflow-x: hidden; }
@@ -42,6 +43,10 @@
     .card-carousel { position: relative; width: 100%; height: 200px; overflow: hidden; border-radius: 12px 12px 0 0; background: var(--card-bg, #0f1e35); }
     .carousel-track { display: flex; height: 100%; transition: transform 0.35s ease; }
     .carousel-slide { min-width: 100%; height: 200px; object-fit: cover; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .card-carousel { height: 150px; }
+      .carousel-slide { height: 150px; }
+    }
     .carousel-prev, .carousel-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,22,40,0.65); color: #fff; border: none; padding: 6px 11px; border-radius: 6px; cursor: pointer; font-size: 1rem; z-index: 2; transition: background 0.2s; }
     .carousel-prev { left: 8px; }
     .carousel-next { right: 8px; }
