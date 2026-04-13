@@ -1,0 +1,5 @@
+node_modules/
+.unlighthouse/
+lighthouse-report.json
+temporary screenshots/
+screenshots/
