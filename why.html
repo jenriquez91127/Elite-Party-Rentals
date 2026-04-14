@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="brand_assets/favicon-icon.png" />
+  <link rel="apple-touch-icon" href="brand_assets/favicon-icon.png" />
+  <link rel="shortcut icon" type="image/png" href="brand_assets/favicon-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Elite Party Rentals — Why choose us and how our booking process works. Free delivery, fully insured, transparent pricing, and bilingual service in Bakersfield, CA." />
   <title>Why Us — Elite Party Rentals</title>
@@ -18,16 +20,16 @@
 </head>
 <body>
 
-<div class="logo-float-layer" id="logo-float-layer"></div>
+<div class="logo-float-layer" id="logo-float-layer" aria-hidden="true"></div>
 
 <nav>
   <a class="nav-logo" href="index.html">
     <picture><source srcset="brand_assets/elite_party_rentals_logo.webp" type="image/webp" /><img src="brand_assets/elite_party_rentals_logo.png" alt="Elite Party Rentals Logo" /></picture>
     <div class="nav-logo-text">Elite Party<br /><span>Rentals</span></div>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-    <li><a href="why.html" class="nav-link-active" data-i18n="nav_why">Why Us</a></li>
+    <li><a href="why.html" class="nav-link-active" aria-current="page" data-i18n="nav_why">Why Us</a></li>
     <li><a href="reviews.html" data-i18n="nav_reviews">Reviews</a></li>
     <li><a href="pricing.html" data-i18n="nav_pricing">Pricing</a></li>
     <li><a class="nav-cta btn-heartbeat" href="booking.html" data-i18n="nav_cta">Book Now</a></li>
@@ -36,10 +38,11 @@
     <span class="lang-btn lang-active" id="lang-en">EN</span>
     <span class="lang-btn" id="lang-es">ES</span>
   </div>
-  <div class="hamburger" id="hamburger" aria-label="Open menu">
+  <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
+<main>
 
 <!-- ===== WHY US ===== -->
 <section class="why" id="why" style="padding-top:172px;">
@@ -104,6 +107,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer>

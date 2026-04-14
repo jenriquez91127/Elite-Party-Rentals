@@ -152,6 +152,8 @@ nav {
   gap: 5px;
   cursor: pointer;
   padding: 4px;
+  background: none;
+  border: none;
 }
 
 .hamburger span {
