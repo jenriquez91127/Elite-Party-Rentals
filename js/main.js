@@ -332,6 +332,17 @@ if (window.innerWidth <= 768) {
   });
 }
 
+/* ---- Block double-tap zoom (allow pinch-to-zoom) ---- */
+(function () {
+  var lastTap = 0;
+  document.addEventListener('touchend', function (e) {
+    if (e.touches.length > 0) return; // multi-touch = pinch, leave it alone
+    var now = Date.now();
+    if (now - lastTap < 300) e.preventDefault();
+    lastTap = now;
+  }, { passive: false });
+})();
+
 /* ---- Smooth nav scroll ---- */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function (e) {

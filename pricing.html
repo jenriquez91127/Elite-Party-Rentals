@@ -48,6 +48,16 @@
       .card-carousel { height: 150px; }
       .carousel-slide { height: 150px; }
     }
+
+    /* ---- Mobile reveal bypass (iOS Safari IntersectionObserver unreliable at load) ---- */
+    @media (max-width: 768px) {
+      .reveal, [class*="reveal"] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
     .carousel-prev, .carousel-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,22,40,0.65); color: #fff; border: none; padding: 6px 11px; border-radius: 6px; cursor: pointer; font-size: 1rem; z-index: 2; transition: background 0.2s; }
     .carousel-prev { left: 8px; }
     .carousel-next { right: 8px; }
@@ -99,6 +109,32 @@
     <button class="filter-btn" data-filter="concessions" data-i18n="pf_concessions">Concessions</button>
     <button class="filter-btn" data-filter="extras">Extras</button>
     <button class="filter-btn" data-filter="all" data-i18n="pf_all">All</button>
+  </div>
+
+  <!-- Section intros (shown/hidden by filter JS — packages intro lives inside #packages-section) -->
+  <div id="section-intro-all" class="section-intro" style="display:none;text-align:center;padding:40px 20px 16px;">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);">All Rentals</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;">Browse our full inventory — individual items and packages all in one place.</p>
+  </div>
+  <div id="section-intro-inflatables" class="section-intro" style="display:none;text-align:center;padding:40px 20px 16px;">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);">Inflatables</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;">Bounce houses, waterslides &amp; huge obstacle courses — delivered, set up, and ready to go.</p>
+  </div>
+  <div id="section-intro-tables-chairs" class="section-intro" style="display:none;text-align:center;padding:40px 20px 16px;">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);">Tables &amp; Chairs</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;">Clean, sturdy rentals for any guest count. Mix and match to fit your setup.</p>
+  </div>
+  <div id="section-intro-canopies" class="section-intro" style="display:none;text-align:center;padding:40px 20px 16px;">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);">Canopies &amp; Tents</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;">Shade and shelter in multiple sizes — perfect for any outdoor event.</p>
+  </div>
+  <div id="section-intro-concessions" class="section-intro" style="display:none;text-align:center;padding:40px 20px 16px;">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);">Concession Machines</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;">Popcorn, snow cones, cotton candy &amp; more — crowd favorites at every party.</p>
+  </div>
+  <div id="section-intro-extras" class="section-intro" style="display:none;text-align:center;padding:40px 20px 16px;">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);">Extras</h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;">Power, heat, and specialty items to complete your event setup.</p>
   </div>
 
   <!-- Pricing grid -->
@@ -824,12 +860,20 @@
     });
   });
 
+  /* ---- Mobile reveal bypass ---- */
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
+
   /* ---- Pricing filter ---- */
   (function () {
     var btns        = document.querySelectorAll('.filter-btn');
     var items       = document.querySelectorAll('.pricing-item');
     var pkgSection  = document.getElementById('packages-section');
     var pkgCards    = document.querySelectorAll('.pkg-card');
+    var introEls    = document.querySelectorAll('.section-intro[id^="section-intro-"]');
 
     function applyFilter(filter) {
       btns.forEach(function (b) { b.classList.remove('filter-active'); });
@@ -845,6 +889,11 @@
       } else {
         pkgSection.style.display = 'none';
       }
+
+      // Show the matching section intro; packages intro lives inside #packages-section
+      introEls.forEach(function (el) { el.style.display = 'none'; });
+      var activeIntro = document.getElementById('section-intro-' + filter);
+      if (activeIntro) activeIntro.style.display = '';
     }
 
     btns.forEach(function (btn) {
